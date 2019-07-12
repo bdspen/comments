@@ -6,8 +6,7 @@ module.exports = {
 };
 
 async function create(comment) {
-  return knex
+  return knex(table)
     .insert(comment)
-    .returning('*')
-    .into(table);
+    .returning('*');
 }

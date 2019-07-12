@@ -18,7 +18,9 @@ app.use('/comments', require('./controllers/comments.controller'));
 //ERROR HANDLING
 app.use((err, req, res, next) => {
   // log the error...
-  res.sendStatus(err.httpStatusCode).json(err);
+  res.sendStatus(err.httpStatusCode || 500).json(err);
 });
 // starts the server
 app.listen(port, () => console.log(`server listening on port ${port}`));
+
+module.exports = app;
