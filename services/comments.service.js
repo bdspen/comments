@@ -5,7 +5,7 @@ module.exports = {
   create
 };
 
-function create(comment) {
+async function create(comment) {
   return knex
     .insert(comment)
     .returning('*')
