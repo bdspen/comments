@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "comments",
+  "version": "1.0.0",
+  "description": "A comment board app.",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdspen/comments.git"
+  },
+  "author": "Ben Spenard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bdspen/comments/issues"
+  },
+  "homepage": "https://github.com/bdspen/comments#readme"
+}
