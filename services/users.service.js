@@ -1,10 +1,17 @@
 const knex = require('../db/knex');
-const table = 'comments';
+const table = 'users';
 
 module.exports = {
-  getById
+  getById,
+  create
 };
 
 function getById(id) {
   return knex(table).where({ id });
+}
+
+async function create(user) {
+  return knex(table)
+    .insert(user)
+    .returning('*');
 }
