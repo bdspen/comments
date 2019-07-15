@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
+import { MDBListGroup } from 'mdbreact';
 
 const CommentList = ({ comments, removeComment }) => {
   return (
-    <ul>
+    <MDBListGroup>
       {comments.map(comment => (
         <Comment
           key={comment.id}
@@ -12,7 +13,7 @@ const CommentList = ({ comments, removeComment }) => {
           onClick={() => removeComment(comment.id)}
         />
       ))}
-    </ul>
+    </MDBListGroup>
   );
 };
 

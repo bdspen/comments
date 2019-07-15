@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MDBListGroupItem, MDBIcon } from 'mdbreact';
 
 const Comment = ({ removeComment, comment }) => (
-  <li>
-    {comment}
-    <span onclick={removeComment} class="glyphicon glyphicon-trash" />
-  </li>
+  <MDBListGroupItem>
+    <div className="d-flex justify-content-between">
+      {comment}
+      <MDBIcon
+        icon="trash-alt"
+        style={{ color: 'red' }}
+        onClick={removeComment}
+      />
+    </div>
+  </MDBListGroupItem>
 );
 
 Comment.propTypes = {

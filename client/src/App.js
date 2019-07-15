@@ -1,15 +1,23 @@
 import React from 'react';
-import './App.css';
 import CommentList from './containers/CommentList';
-import AddComment from './containers/AddComment';
+import AddComment from './components/AddComment';
+import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 
 function App() {
   return (
-    <div>
-      <header className="App-header" />
-      <AddComment />
-      <CommentList />
-    </div>
+    <MDBContainer>
+      <MDBRow>
+        <MDBCol size="12">
+          <CommentList />
+        </MDBCol>
+      </MDBRow>
+      <hr/>
+      <MDBRow>
+        <MDBCol size="12">
+          <AddComment />
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 }
 
