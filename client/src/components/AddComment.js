@@ -16,14 +16,12 @@ const AddComment = ({ dispatch }) => {
             return;
           }
           dispatch(addComment(value));
-          input.value = '';
         }}
       >
         <MDBInput
           ref={node => (input = node)}
-          type="textarea"
+          type="text"
           label="Type your Comment"
-          rows="3"
         />
 
         <div className="text-center">

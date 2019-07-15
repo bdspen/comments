@@ -9,9 +9,11 @@ const mapStateToProps = state => {
   return { comments };
 };
 
-const mapDispatchToProps = dispatch => ({
-  removeComment: id => dispatch(removeComment(id))
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    removeComment: id => dispatch(removeComment(id))
+  };
+};
 
 export default connect(
   mapStateToProps,

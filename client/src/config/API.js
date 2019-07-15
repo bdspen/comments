@@ -1,7 +1,7 @@
 const API = {
   createUser: 'users/create',
   createComment: 'comments/create',
-  getComments: 'comments'
+  comments: 'comments'
 };
 
 export default API;
