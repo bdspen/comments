@@ -7,26 +7,29 @@ const comments = (
 ) => {
   switch (action.type) {
     case 'ADD_COMMENT':
-      return [
+      return {
         ...state,
-        {
-          id: action.id,
-          comment: action.comment,
-          completed: false
-        }
-      ];
+        comment: action.comment
+      };
     case 'REMOVE_COMMENT':
       return state.filter(comment => comment.id !== action.id);
-    case 'REQUEST_POSTS':
+    case 'REQUEST_COMMENTS':
       return Object.assign({}, state, {
         isFetching: true,
         didInvalidate: false
       });
-    case 'RECEIVE_POSTS':
+    case 'RECEIVE_COMMENTS':
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: action.posts,
+        comments: action.comments,
+        lastUpdated: action.receivedAt
+      });
+    case 'RECEIVE_COMMENT':
+      return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
+        comments: [...state.comments, action.comment],
         lastUpdated: action.receivedAt
       });
     default:
