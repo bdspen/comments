@@ -1,16 +1,24 @@
 const router = require('express').Router();
 const commentsService = require('../services/comments.service');
+const errorMiddleware = require('../utils/asyncErrorMiddleware');
 
-router.post('/create', create);
+router.get('/', errorMiddleware(getAll));
+router.post('/create', errorMiddleware(create));
+router.delete('/:id', errorMiddleware(remove));
+
+async function getAll(req, res, next) {
+  const comments = await commentsService.getAll();
+  res.status(200).send(comments);
+}
 
 async function create(req, res, next) {
-  try {
-    const [newComment] = await commentsService.create(req.body);
-    res.status(200).send(newComment);
-  } catch (e) {
-    e.httpStatusCode = 400;
-    return next(e);
-  }
+  const [newComment] = await commentsService.create(req.body);
+  res.status(200).send(newComment);
+}
+
+async function remove(req, res, next) {
+  const removedComment = await commentsService.remove(req.params.id);
+  res.status(200).send(removedComment);
 }
 
 module.exports = router;

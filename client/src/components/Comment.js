@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Comment = ({ removeComment, comment }) => (
-  <li>
-    {comment}
-    <span onclick={removeComment} class="glyphicon glyphicon-trash" />
-  </li>
+const Comment = ({ comment, onClick }) => (
+  <MDBListGroupItem>
+    <div className="d-flex justify-content-between">
+      {comment}
+      <MDBIcon icon="trash-alt" style={{ color: 'red' }} onClick={onClick} />
+    </div>
+  </MDBListGroupItem>
 );
 
 Comment.propTypes = {
   onClick: PropTypes.func.isRequired,
-  removeComment: PropTypes.func.isRequired,
   userId: PropTypes.number,
   comment: PropTypes.string.isRequired
 };
