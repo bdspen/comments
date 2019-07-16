@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addComment } from '../actions';
+import { addComment } from '../actions/comments';
 import { MDBBtn, MDBInput } from 'mdbreact';
 
 const AddComment = ({ dispatch }) => {
@@ -11,17 +11,18 @@ const AddComment = ({ dispatch }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          const { innerValue: value } = input.state;
-          if (!value.trim()) {
+          if (!input.value.trim()) {
             return;
           }
-          dispatch(addComment(value));
+          dispatch(addComment(input.value));
+          input.value = '';
         }}
       >
-        <MDBInput
+        <input
           ref={node => (input = node)}
           type="text"
-          label="Type your Comment"
+          className="form-control"
+          placeholder="Type your Comment"
         />
 
         <div className="text-center">

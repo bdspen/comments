@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { removeComment } from '../actions';
+import { removeComment } from '../actions/comments';
 import CommentList from '../components/CommentList';
 
 // const refreshComments = (comments, filter) => {};

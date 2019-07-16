@@ -4,7 +4,7 @@ import { createLogger } from 'redux-logger';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { fetchComments } from './actions';
+import { fetchComments } from './actions/comments';
 import rootReducer from './reducers/comments';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
