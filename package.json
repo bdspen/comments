@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "mocha ./tests --recursive --debug-brk=5858"
+    "test": "mocha ./tests --recursive --debug-brk=5858",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "name": "comments",
   "version": "1.0.0",
