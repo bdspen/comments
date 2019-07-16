@@ -14,7 +14,7 @@ const AddComment = ({
     e.preventDefault();
     if (!form.text) return;
     if (userId) {
-      addComment({ text: form.text });
+      addComment({ comment: form.text, userId });
       updateForm({ text: '' });
     } else {
       if (!form.email) return;

@@ -7,6 +7,7 @@
     "bootstrap-material-design": "4.1.1",
     "cross-fetch": "^3.0.4",
     "mdbreact": "^4.18.0",
+    "moment": "^2.24.0",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

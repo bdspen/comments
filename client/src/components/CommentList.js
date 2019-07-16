@@ -6,14 +6,16 @@ import { MDBListGroup } from 'mdbreact';
 const CommentList = ({ comments, removeComment, userId }) => {
   return (
     <MDBListGroup>
-      {comments.map(comment => (
-        <Comment
-          key={comment.id}
-          {...comment}
-          isMyComment={comment.userId === userId}
-          onClick={() => removeComment(comment.id)}
-        />
-      ))}
+      {comments.map(comment => {
+        return (
+          <Comment
+            key={comment.id}
+            comment={comment}
+            isMyComment={comment.userId === userId}
+            onClick={() => removeComment(comment.id)}
+          />
+        );
+      })}
     </MDBListGroup>
   );
 };
@@ -23,6 +25,8 @@ CommentList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       userId: PropTypes.number,
+      email: PropTypes.string,
+      name: PropTypes.string,
       comment: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
