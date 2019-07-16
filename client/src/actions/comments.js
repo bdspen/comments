@@ -1,6 +1,6 @@
 import API from '../config/API';
 import fetch from 'cross-fetch';
-
+import { addUserWithComment } from './users';
 export const REQUEST_COMMENTS = 'REQUEST_COMMENTS';
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
@@ -24,6 +24,17 @@ export const addComment = comment => {
       .then(json => {
         dispatch(receiveComment(json));
       });
+  };
+};
+
+export const addCommentWithNewUserData = (user, comment) => {
+  return dispatch => {
+    dispatch(
+      addUserWithComment(
+        { name: user.name, email: user.email },
+        { comment: comment.text }
+      )
+    );
   };
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentList from './containers/CommentList';
-import AddComment from './components/AddComment';
+import AddComment from './containers/AddComment';
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
           <CommentList />
         </MDBCol>
       </MDBRow>
-      <hr/>
+      <hr />
       <MDBRow>
         <MDBCol size="12">
           <AddComment />
