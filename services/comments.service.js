@@ -3,6 +3,7 @@ const table = 'comments';
 
 module.exports = {
   create,
+  getById,
   getAll,
   remove
 };
@@ -13,8 +14,14 @@ async function create(comment) {
     .returning('*');
 }
 
+async function getById(id) {
+  return knex('users')
+    .join('comments', { 'users.id': 'comments.user_id' })
+    .where({ 'comments.id': id });
+}
+
 async function getAll() {
-  return knex(table);
+  return knex('users').join('comments', { 'users.id': 'comments.user_id' });
 }
 
 async function remove(id) {

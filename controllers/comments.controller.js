@@ -12,8 +12,9 @@ async function getAll(req, res, next) {
 }
 
 async function create(req, res, next) {
-  const [newComment] = await commentsService.create(req.body);
-  res.status(200).send(newComment);
+  const [newComment] = await commentsService.create(req.body.comment);
+  const [comment] = await commentsService.getById(newComment.id);
+  res.status(200).send(comment);
 }
 
 async function remove(req, res, next) {
