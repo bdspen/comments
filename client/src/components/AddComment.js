@@ -9,7 +9,8 @@ class AddComment extends React.Component {
     this.state = {
       text: '',
       name: '',
-      email: ''
+      email: '',
+      userId: this.props.userId
     };
 
     this.onHandleChange = this.onHandleChange.bind(this);
@@ -59,22 +60,26 @@ class AddComment extends React.Component {
             className="form-control"
             placeholder="Type your Comment"
           />
-          <input
-            onChange={e => this.onHandleChange(e)}
-            type="text"
-            name="name"
-            value={this.state.name}
-            className="form-control"
-            placeholder="Name"
-          />
-          <input
-            onChange={e => this.onHandleChange(e)}
-            type="email"
-            name="email"
-            value={this.state.email}
-            className="form-control"
-            placeholder="Email Address"
-          />
+          {!this.state.userId ? (
+            <input
+              onChange={e => this.onHandleChange(e)}
+              type="text"
+              name="name"
+              value={this.state.name}
+              className="form-control"
+              placeholder="Name"
+            />
+          ) : null}
+          {!this.state.userId ? (
+            <input
+              onChange={e => this.onHandleChange(e)}
+              type="email"
+              name="email"
+              value={this.state.email}
+              className="form-control"
+              placeholder="Email Address"
+            />
+          ) : null}
 
           <div className="text-center">
             <MDBBtn type="submit" color="primary">

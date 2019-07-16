@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import { MDBListGroup } from 'mdbreact';
+import { pathOr } from 'ramda';
 
-const CommentList = ({ comments, removeComment }) => {
+const CommentList = ({ comments, removeComment, userId }) => {
   return (
     <MDBListGroup>
       {comments.map(comment => (
         <Comment
           key={comment.id}
           {...comment}
+          isMyComment={comment.userId === userId}
           onClick={() => removeComment(comment.id)}
         />
       ))}

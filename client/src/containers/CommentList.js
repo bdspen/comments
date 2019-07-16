@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { removeComment } from '../actions/comments';
 import CommentList from '../components/CommentList';
-
-// const refreshComments = (comments, filter) => {};
+import { pathOr } from 'ramda';
 
 const mapStateToProps = state => {
-  const { comments } = state;
-  return { comments };
+  const { comments, user } = state;
+  const userId = pathOr(false, ['id'], user);
+  return { comments, userId };
 };
 
 const mapDispatchToProps = dispatch => {

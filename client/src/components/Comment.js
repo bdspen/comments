@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MDBListGroupItem, MDBIcon } from 'mdbreact';
 
-const Comment = ({ comment, onClick }) => (
+const Comment = ({ comment, onClick, isMyComment }) => (
   <MDBListGroupItem>
     <div className="d-flex justify-content-between">
       {comment}
-      <MDBIcon icon="trash-alt" style={{ color: 'red' }} onClick={onClick} />
+      {isMyComment ? (
+        <MDBIcon icon="trash-alt" style={{ color: 'red' }} onClick={onClick} />
+      ) : null}
     </div>
   </MDBListGroupItem>
 );
