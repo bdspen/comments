@@ -1,4 +1,4 @@
-const users = (
+const user = (
   state = {
     isFetching: false,
     user: null
@@ -23,4 +23,4 @@ const users = (
   }
 };
 
-export default users;
+export default user;

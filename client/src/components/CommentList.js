@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import { MDBListGroup } from 'mdbreact';
-import { pathOr } from 'ramda';
 
 const CommentList = ({ comments, removeComment, userId }) => {
   return (
