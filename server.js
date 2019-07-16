@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const path = require('path');
 const port = process.env.PORT || 5000;
 require('dotenv').config();
 
@@ -10,6 +11,8 @@ app.use(
     extended: false
   })
 );
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 //APP ENDPOINTS
 app.use('/users', require('./controllers/users.controller'));
